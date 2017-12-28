@@ -1,17 +1,17 @@
-// CONSTRUKTOR
-
 function Products(name, weight, price, iden){
 	this.name = name;
 	this.weight = weight;
 	this.price = price;
 	this.iden = iden;
 	this.result = function(){
-		if (document.getElementById(this.iden).value <= 0){return ""}
-		else if (Math.ceil(document.getElementById(this.iden).value) - document.getElementById(this.iden).value > 0){return this.name + ": number must be integer\n"}
+		if (document.getElementById(this.iden).value == 0){return ""}
+		else if (Math.ceil(document.getElementById(this.iden).value) - document.getElementById(this.iden).value > 0 || document.getElementById(this.iden).value < 0){return ""}
 		else return "price of " + document.getElementById(this.iden).value+ " " + this.name + " = " + (document.getElementById(this.iden).value * this.weight * this.price).toFixed(2) + "$\n" ;
 	}
 	this.toPay = function(){
-		return (document.getElementById(this.iden).value * this.weight * this.price);
+		 if (document.getElementById(this.iden).value < 0){return ""}
+		 if ((document.getElementById(this.iden).value !== 0) && (Math.ceil(document.getElementById(this.iden).value) - document.getElementById(this.iden).value == 0)) return (document.getElementById(this.iden).value * this.weight * this.price);
+		 else {return ""}
 	}
 }
 
